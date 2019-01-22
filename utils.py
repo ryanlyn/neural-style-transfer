@@ -9,24 +9,33 @@ def get_device():
     return device
 
 
-def show_image(tensor, title=None):
+def tensor_to_image(tensor):
     unloader = transforms.ToPILImage()
-    plt.ion()
-
     image = tensor.cpu().clone()
     image = image.squeeze(0)
     image = unloader(image)
+    return image
 
+
+def show_image(tensor, title=None):
+    image = tensor_to_image(tensor)
+
+    plt.figure()
     plt.imshow(image)
     if title is not None:
         plt.title(title)
     plt.pause(0.001)
+    return None
 
+
+def save_image(tensor, path):
+    image = tensor_to_image(tensor)
+    image.save(path, 'JPEG', quality=90, optimize=True, progressive=True)
     return None
 
 
 def test_show_image():
-    from model import transform_image_tensors
+    from loader import transform_image_tensors
     style_image, content_image = transform_image_tensors('./data/picasso.jpg', './data/dancing.jpg')
     show_image(style_image)
     return None
