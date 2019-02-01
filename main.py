@@ -68,12 +68,12 @@ def parse_args_gui():
 def parse_args():
     parser = argparse.ArgumentParser('neural style transfer between style and content images')
 
-    style_path_default = os.path.join('.', 'data', 'picasso.jpg')
+    style_path_default = os.path.join('.', 'data', 'starry_night.jpg')
     parser.add_argument(
         '--style_path', type=str, default=style_path_default, help='path to the style image'
     )
 
-    content_path_default = os.path.join('.', 'data', 'dancing.jpg')
+    content_path_default = os.path.join('.', 'data', 'sydney.jpg')
     parser.add_argument(
         '--content_path', type=str, default=content_path_default, help='path to the content image'
     )
@@ -83,7 +83,7 @@ def parse_args():
         '--output_dir', type=str, default=output_dir_default, help='directory in where output should be saved'
     )
 
-    output_name_default = 'picasso_dancing.jpg'
+    output_name_default = 'starry_sydney.jpg'
     parser.add_argument(
         '--output_name', type=str, default=output_name_default, help='output filename'
     )
@@ -103,6 +103,6 @@ def main(args):
 
 
 if __name__ == '__main__':
-    arguments = parse_args_gui()
+    arguments = parse_args()
     main(arguments)
 

@@ -21,7 +21,7 @@ class Normalisation(nn.Module):
 
 
 class ContentLoss(nn.Module):
-
+    """The content loss represents a weighted version of the content distance for an individual image"""
     def __init__(self, target):
         super(ContentLoss, self).__init__()
         self.target = target.detach()

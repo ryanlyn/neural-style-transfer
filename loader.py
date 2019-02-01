@@ -12,8 +12,10 @@ def get_image_size():
 
 
 def get_transforms():
+    image_size = get_image_size()
+
     transform = transforms.Compose([
-        transforms.Resize(get_image_size()),
+        transforms.Resize((image_size, image_size)),
         transforms.ToTensor()
     ])
     return transform

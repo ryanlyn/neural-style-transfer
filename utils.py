@@ -33,13 +33,3 @@ def save_image(tensor, path):
     image.save(path, 'JPEG', quality=90, optimize=True, progressive=True)
     return None
 
-
-def test_show_image():
-    from loader import transform_image_tensors
-    style_image, content_image = transform_image_tensors('./data/picasso.jpg', './data/dancing.jpg')
-    show_image(style_image)
-    return None
-
-
-if __name__ == '__main__':
-    test_show_image()
